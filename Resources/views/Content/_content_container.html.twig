@@ -2,5 +2,7 @@
 
 {# TODO: possible to inject variable for the content block? #}
 {% block content %}
-    {% include contentLocation %}
+    {% sandbox %}
+        {% include contentLocation %}
+    {% endsandbox %}
 {% endblock %}
