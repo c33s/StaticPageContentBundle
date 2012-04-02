@@ -1,8 +1,34 @@
-{% extends baseTemplate %}
+{# 
+    Twig Content Container
+    
+    Extends a given base template or doesn't extend at all if an empty string is 
+    provided. Includes the given contentlocation inside a block named "content".
 
-{# TODO: possible to inject variable for the content block? #}
+    The block name is hardcoded because twig has not included dynamic block names
+
+    TODO: variable content block name.
+    possible to inject variable for the content block? 
+    requires dynamic blocks
+    http://stackoverflow.com/questions/7066365/dynamic-block-name-in-twig
+    https://github.com/fabpot/Twig/issues/298
+    https://groups.google.com/group/twig-devs/browse_thread/thread/f8daa0af0415a548
+
+    other solution would be pre-generated container templates
+
+    TODO: performace check twig with or without "if"
+    maye create two different templates for sandboxed and not sandboxed. 
+#}
+
+{# only extend a base template if templete is not empty #}
+{% if baseTemplate is not empty %}
+    {% extends baseTemplate %}
+{% endif %}
+
+{# hardcoded block name "content" #}
 {% block content %}
-    {% sandbox %}
+
+    {# only sandbox if required #}
+    {% if isSandboxed is sameas(true) %}{% sandbox %}{% endif %}
         {% include contentLocation %}
-    {% endsandbox %}
+    {% if isSandboxed is sameas(true) %}{% endsandbox %}{% endif %}
 {% endblock %}
