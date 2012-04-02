@@ -1,0 +1,3 @@
+_page:
+    pattern:  /{name}
+    defaults: { _controller: "c33sStaticPageContentBundle:BaseStaticPage:show" }
