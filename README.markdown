@@ -37,7 +37,8 @@ real content has to be inside.
 The Bundle uses a very catchy route ``/{name}``, so it should be placed at the end of your
 routing file.
 
-if ``{name}`` is catched the controller tries to load 
+if ``{name}`` is catched the controller tries to load the content file with the
+given name.
 
 ## USAGE
 After the installation, you have to create your own bundle, where you change the
