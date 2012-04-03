@@ -22,8 +22,10 @@
     {
         "psr-0": 
         {
-            "c33s\\Bundle\\StaticPageContentBundle": ""
+            "c33s\\StaticPageContentBundle": ""
         }
     },
-    "target-dir": "c33s/Bundle/StaticPageContentBundle"
+    "target-dir": "c33s/StaticPageContentBundle"
 }
+
+

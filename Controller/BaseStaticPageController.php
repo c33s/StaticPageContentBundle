@@ -142,7 +142,7 @@ class BaseStaticPageController extends Controller
             array
             (
                 'baseTemplate' => $this->getBaseTemplateLocation(), 
-                'isSandboxed' => $this->getIsSandboxed(),
+                //'isSandboxed' => $this->getIsSandboxed(),
                 'contentLocation'=> $contentLocation
             )
         );
