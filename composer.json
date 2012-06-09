@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Easy serving of Static Page Content with Symfony using Twig Templates",
     "keywords": ["static","content", "page", "bundle", "c33s", "consistency"],
-    "homepage": "https://github.com/consistency/StaticPageContentBundle",
+    "homepage": "https://github.com/c33s/StaticPageContentBundle",
     "license": ["MIT", "GPL"],
     "authors": 
     [
