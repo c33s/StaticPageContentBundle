@@ -85,8 +85,14 @@ your files can be located in the first level subfolder of the Content directory:
 YourVendorName/YourBundleNameBundle/Resources/views/Content/YourSubFolder
 ```
 
-```http://example.com/aboutus/team``` will look for a template in 
-```YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.twig```
+```
+http://example.com/aboutus/team
+``` 
+will look for a template in 
+
+```
+YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.twig
+```
 
 
 ## CUSTOMIZATION
