@@ -80,14 +80,16 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentLocation($contentName)
     {
-        return sprintf
-        (
-            '%s:%s:%s%s', 
-            $this->getContentBundleName(), 
-            $this->getContentFolderName(), 
-            $contentName, 
-            $this->getTemplateExtension()
-        );
+		if (!empty($subfolder)) $subfolder = "${subfolder}/";
+		return sprintf
+		(
+			'%s:%s:%s%s%s',
+			$this->getContentBundleName(),
+			$this->getContentFolderName(),
+			$subfolder,
+			$contentName,
+			$this->getTemplateExtension()
+		);
     }
     
     /**
@@ -130,7 +132,7 @@ class BaseStaticPageController extends Controller
      * @return Response A Response instance
      * @throws Symfony\Component\HttpKernel\Exception\NotFoundHttpException Not found Exception is thrown if no template with the given name exists.
      */
-    public function showAction($name)
+    public function showAction($name, $subfolder="")
     {
         $contentLocation = $this->getContentLocation($name);
         

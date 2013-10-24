@@ -63,7 +63,7 @@ class PageController extends BaseStaticPageController
 add a routing like this to the end of your routing file (in config/routing you can
 find the routing code you can use).
 ```
-page:
+static_pages:
     pattern:  /{name}
     defaults: { _controller: "YourVendorNameYourBundleNameBundle:Page:show" }
 ```
@@ -72,6 +72,22 @@ put your content files here:
 ```
 YourVendorName/YourBundleNameBundle/Resources/views/Content/
 ```
+
+using static files with folders:
+```
+static_pages_subfolder:
+    pattern:  /{subfolder}/{name}
+    defaults: { _controller: "YourVendorNameYourBundleNameBundle:Page:show" }
+```
+
+your files can be located in the first level subfolder of the Content directory:
+```
+YourVendorName/YourBundleNameBundle/Resources/views/Content/YourSubFolder
+```
+
+```http://example.com/aboutus/team``` will look for a template in 
+```YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.twig```
+
 
 ## CUSTOMIZATION
 If you want customize the bundles behavior, you have to overwrite the following 
