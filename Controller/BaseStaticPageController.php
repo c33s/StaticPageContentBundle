@@ -78,7 +78,7 @@ class BaseStaticPageController extends Controller
      * @param string $contentName The name of the content file which should be loaded
      * @return string Full path expression for the template
      */
-    protected function getContentLocation($contentName)
+    protected function getContentLocation($contentName, $subfolder = "")
     {
 		if (!empty($subfolder)) $subfolder = "${subfolder}/";
 		return sprintf
@@ -134,7 +134,7 @@ class BaseStaticPageController extends Controller
      */
     public function showAction($name, $subfolder="")
     {
-        $contentLocation = $this->getContentLocation($name);
+        $contentLocation = $this->getContentLocation($name, $subfolder);
         
         if (!$this->container->get('templating')->exists($contentLocation))
         {
