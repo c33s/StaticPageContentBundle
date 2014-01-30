@@ -12,8 +12,6 @@
 namespace c33s\StaticPageContentBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 
 /*
@@ -63,7 +61,7 @@ class BaseStaticPageController extends Controller
         return 'Content';
     }
     
-    protected function getIsSandboxed()
+    protected function isSandboxed()
     {
         return $this->isSandboxed;
     }
@@ -144,7 +142,7 @@ class BaseStaticPageController extends Controller
             array
             (
                 'baseTemplate' => $this->getBaseTemplateLocation(), 
-                //'isSandboxed' => $this->getIsSandboxed(),
+                //--'isSandboxed' => $this->isSandboxed(),
                 'contentLocation'=> $contentLocation
             )
         );
