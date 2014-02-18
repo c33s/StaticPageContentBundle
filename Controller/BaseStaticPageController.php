@@ -35,7 +35,6 @@ class BaseStaticPageController extends Controller
      */
     protected $isSandboxed = false;
     
-    
     /**
      * Returns the name of the Bundle, where the templates, which are 
      * containing the static content, are stored
@@ -65,8 +64,7 @@ class BaseStaticPageController extends Controller
     {
         return $this->isSandboxed;
     }
-
-
+    
     /**
      * Returns the full template "path" expression for a given content name. 
      * Currently only twig is implemented. The Expression includes the ":" 
@@ -78,12 +76,17 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentLocation($contentName, $subfolder = "")
     {
-		if (!empty($subfolder)) $subfolder = "${subfolder}/";
+		if (!empty($subfolder))
+        {
+            $subfolder .= "/";
+        }
+        
 		return sprintf
 		(
-			'%s:%s:%s%s%s',
+			'%s:%s:%s%s%s%s',
 			$this->getContentBundleName(),
 			$this->getContentFolderName(),
+            $this->getTranslationFolder(),
 			$subfolder,
 			$contentName,
 			$this->getTemplateExtension()
@@ -138,6 +141,7 @@ class BaseStaticPageController extends Controller
         {
             throw $this->createNotFoundException();
         }
+        
         return $this->render($this->getContainerLocation() ,
             array
             (
@@ -146,5 +150,35 @@ class BaseStaticPageController extends Controller
                 'contentLocation'=> $contentLocation
             )
         );
+    }
+    
+    /**
+     * Define if translated files should be used or not. Translated files use an additional folder in the template path.
+     * e.g.: views/Content/de/foo.html.twig instead of views/Content/foo.html.twig
+     * 
+     * @TODO: make this a service setting
+     * 
+     * Override this and return true to enable translations support
+     * 
+     * @return boolean
+     */
+    public function isUsingTranslations()
+    {
+        return false;
+    }
+    
+    /**
+     * Get the intermediate folder used for translated templates if translations are enabled.
+     * 
+     * @return string
+     */
+    protected function getTranslationFolder()
+    {
+        if ($this->isUsingTranslations())
+        {
+            return $this->get('request')->getLocale().'/';
+        }
+        
+        return '';
     }
 }
