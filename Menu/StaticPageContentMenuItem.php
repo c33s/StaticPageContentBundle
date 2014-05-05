@@ -67,4 +67,22 @@ class StaticPageContentMenuItem extends MenuItem
         
         return parent::generateStandardUrl($urlParameters, $absolute);
     }
+    
+    /**
+     * Generate child items based on the passed options.
+     */
+    protected function generateChildren()
+    {
+        if (!$this->hasOption('children') || !is_array($this->getOption('children')))
+        {
+            return;
+        }
+        
+        $myRoute = $this->routeName.'/'.$this->staticPageName;
+        foreach ($this->getOption('children') as $routeName => $options)
+        {
+            $routeName = str_replace('./', $myRoute.'/', $routeName);
+            $this->addChildByData($routeName, $options);
+        }
+    }
 }
