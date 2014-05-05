@@ -76,21 +76,21 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentLocation($contentName, $subfolder = "")
     {
-		if (!empty($subfolder))
+        if (!empty($subfolder))
         {
             $subfolder .= "/";
         }
         
-		return sprintf
-		(
-			'%s:%s:%s%s%s%s',
-			$this->getContentBundleName(),
-			$this->getContentFolderName(),
-			$subfolder,
-			$contentName,
+        return sprintf
+        (
+            '%s:%s:%s%s%s%s',
+            $this->getContentBundleName(),
+            $this->getContentFolderName(),
+            $subfolder,
+            $contentName,
             $this->getTranslationFilePath(),
-		    $this->getTemplateExtension()
-		);
+            $this->getTemplateExtension()
+        );
     }
     
     /**
