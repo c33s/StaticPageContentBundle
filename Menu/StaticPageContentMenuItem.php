@@ -39,50 +39,50 @@ class StaticPageContentMenuItem extends MenuItem
         
         list($routeName, $this->staticPageName) = explode('/', $routeName, 2);
         
+        $options['match_request_variables']['name'] = $this->staticPageName;
+        
         parent::__construct($routeName, $options, $menu);
     }
     
     /**
-     * Check if the item is currently selected itself. This is the case when
-     * the current (request) route name matches the item route name or the
-     * item's alias routes.
-     *
-     * @return boolean
-     */
-    public function isCurrentEndPoint()
-    {
-        return parent::isCurrentEndPoint() && $this->getRequest()->get('name') == $this->staticPageName;
-    }
-    
-    /**
-     * Generate a URL using the routing.
+     * Add variable values defined in $addRequestVariables to the given
+     * urlParameters. This can be used to pass through generally available
+     * request parameters.
      *
      * @param array $urlParameters
      *
-     * @return string
+     * @return array
      */
-    protected function generateStandardUrl(array $urlParameters = array(), $absolute = false)
+    protected function addRequestVariablesToUrlParameters(array $urlParameters)
     {
+        $urlParameters = parent::addRequestVariablesToUrlParameters($urlParameters);
         $urlParameters['name'] = $this->staticPageName;
-        
-        return parent::generateStandardUrl($urlParameters, $absolute);
+                
+        return $urlParameters;
     }
     
     /**
-     * Generate child items based on the passed options.
+     * Add a child to the menu using item data.
+     *
+     * Possible value for position are:
+     * * 'last': insert at last position (append), this is the default
+     * * 'first': insert at first position
+     * * positive number (e.g. 2): insert at this position, count starts at 0
+     * * negative number (e.g. -1): insert at this position from the END of the children backwards
+     *
+     * @param string $routeName
+     * @param array $options
+     * @param string $position
+     *
+     * @return MenuItem    The generated item
      */
-    protected function generateChildren()
+    public function addChildByData($routeName, $options, $position = 'last')
     {
-        if (!$this->hasOption('children') || !is_array($this->getOption('children')))
+        if (substr($routeName, 0, 2) == './')
         {
-            return;
+            $routeName = $this->routeName.'/'.$this->staticPageName.substr($routeName, 1);
         }
         
-        $myRoute = $this->routeName.'/'.$this->staticPageName;
-        foreach ($this->getOption('children') as $routeName => $options)
-        {
-            $routeName = str_replace('./', $myRoute.'/', $routeName);
-            $this->addChildByData($routeName, $options);
-        }
+        return parent::addChildByData($routeName, $options, $position);
     }
 }
