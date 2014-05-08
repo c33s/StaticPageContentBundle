@@ -34,10 +34,19 @@ class StaticPageContentMenuItem extends MenuItem
     {
         if (false === strpos($routeName, '/'))
         {
-            throw new OptionRequiredException('StaticPageContentMenuItem requires routeName/pageName notation');
+            if (isset($options['set_request_variables']['name']))
+            {
+                $this->staticPageName = $options['set_request_variables']['name'];
+            }
+            else
+            {
+                throw new OptionRequiredException('StaticPageContentMenuItem requires either routeName/pageName notation or a "name" variable in "set_request_variables"');
+            }
         }
-        
-        list($routeName, $this->staticPageName) = explode('/', $routeName, 2);
+        else
+        {
+            list($routeName, $this->staticPageName) = explode('/', $routeName, 2);
+        }
         
         $options['match_request_variables']['name'] = $this->staticPageName;
         
