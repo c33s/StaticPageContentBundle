@@ -2,31 +2,12 @@
 [![project status](http://stillmaintained.com/c33s/StaticPageContentBundle.png)](http://stillmaintained.com/c33s/StaticPageContentBundle)
 
 
-Provide an easy way to serve static page content in your Symfony2 Projects with 
+Provide an easy way to serve static page content in your Symfony2 Projects with
 Twig.
 
 ## INSTALLATION
 
-### vendor file
-Add the following entry to ``deps`` the run ``php bin/vendors install``.
-
-    [c33sStaticPageContentBundle]
-        git=https://github.com/consistency/StaticPageContentBundle.git
-        target=/bundles/c33s/Bundle/StaticPageContentBundle
-
-Register the bundle in ``app/AppKernel.php``
-
-    $bundles = array(
-        // ...
-        new c33s\StaticPageContentBundle\c33sStaticPageContentBundle(),
-    );
-
-Register namespace in ``app/autoload.php``
-
-    $loader->registerNamespaces(array(
-        // ...
-        'c33s\StaticPageContentBundle'         => __DIR__.'/../vendor/bundles',
-    ));
+`php composer.phar require c33s/static-page-content-bundle`
 
 ## HOW IT WORKS
 

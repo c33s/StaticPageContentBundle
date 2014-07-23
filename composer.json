@@ -5,7 +5,7 @@
     "keywords": ["static","content", "page", "bundle", "c33s", "consistency"],
     "homepage": "https://github.com/c33s/StaticPageContentBundle",
     "license": ["MIT", "GPL-3.0"],
-    "authors": 
+    "authors":
     [
         {
             "name": "consistency",
@@ -13,10 +13,10 @@
             "homepage": "http://consistency.at/"
         }
     ],
-    "require": 
+    "require":
     {
-        "php": ">=5.3.0",
-        "symfony/framework-bundle": ">=2.0.0"
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3"
     },
     "autoload": 
     {
