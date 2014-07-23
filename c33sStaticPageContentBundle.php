@@ -9,11 +9,9 @@
 * file that was distributed with this source code.
 */
 
-
 namespace c33s\StaticPageContentBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 
 class c33sStaticPageContentBundle extends Bundle
 {

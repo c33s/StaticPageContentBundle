@@ -14,7 +14,7 @@ use c33s\MenuBundle\Menu\Menu;
 class StaticPageContentMenuItem extends MenuItem
 {
     protected $staticPageName;
-    
+
     /**
      * Construct a new menu item. It requires its routeName, options and
      * the menu the item is assigned to.
@@ -27,32 +27,26 @@ class StaticPageContentMenuItem extends MenuItem
      * @throws OptionRequiredException
      *
      * @param string $routeName
-     * @param array $options
-     * @param Menu $menu
+     * @param array  $options
+     * @param Menu   $menu
      */
     public function __construct($routeName, array $options, Menu $menu)
     {
-        if (false === strpos($routeName, '/'))
-        {
-            if (isset($options['set_request_variables']['name']))
-            {
+        if (false === strpos($routeName, '/')) {
+            if (isset($options['set_request_variables']['name'])) {
                 $this->staticPageName = $options['set_request_variables']['name'];
-            }
-            else
-            {
+            } else {
                 throw new OptionRequiredException('StaticPageContentMenuItem requires either routeName/pageName notation or a "name" variable in "set_request_variables"');
             }
-        }
-        else
-        {
+        } else {
             list($routeName, $this->staticPageName) = explode('/', $routeName, 2);
         }
-        
+
         $options['match_request_variables']['name'] = $this->staticPageName;
-        
+
         parent::__construct($routeName, $options, $menu);
     }
-    
+
     /**
      * Add variable values defined in $addRequestVariables to the given
      * urlParameters. This can be used to pass through generally available
@@ -66,10 +60,10 @@ class StaticPageContentMenuItem extends MenuItem
     {
         $urlParameters = parent::addRequestVariablesToUrlParameters($urlParameters);
         $urlParameters['name'] = $this->staticPageName;
-                
+
         return $urlParameters;
     }
-    
+
     /**
      * Add a child to the menu using item data.
      *
@@ -80,18 +74,17 @@ class StaticPageContentMenuItem extends MenuItem
      * * negative number (e.g. -1): insert at this position from the END of the children backwards
      *
      * @param string $routeName
-     * @param array $options
+     * @param array  $options
      * @param string $position
      *
-     * @return MenuItem    The generated item
+     * @return MenuItem The generated item
      */
     public function addChildByData($routeName, $options, $position = 'last')
     {
-        if (substr($routeName, 0, 2) == './')
-        {
+        if (substr($routeName, 0, 2) == './') {
             $routeName = $this->routeName.'/'.$this->staticPageName.substr($routeName, 1);
         }
-        
+
         return parent::addChildByData($routeName, $options, $position);
     }
 }

@@ -18,7 +18,7 @@ TODO: performace check twig with or without "if"
 maye create two different templates for sandboxed and not sandboxed.
 
 TODO: only extend base template if base template string is not empty
-currently not possible, because also if the "extends" tag is inside an if 
+currently not possible, because also if the "extends" tag is inside an if
 statement, it gets evaluated (php class stuff)
 #}
 
@@ -32,4 +32,3 @@ statement, it gets evaluated (php class stuff)
         {% include contentLocation %}
     {#% if isSandboxed is sameas(true) %}{% endsandbox %}{% endif %#}
 {% endblock %}
- 
