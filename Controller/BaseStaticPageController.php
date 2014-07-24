@@ -13,7 +13,6 @@ namespace c33s\StaticPageContentBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
 /*
  * BaseStaticPageController which should be extended from.
  *
@@ -34,7 +33,7 @@ class BaseStaticPageController extends Controller
      * @var Boolean
      */
     protected $isSandboxed = false;
-    
+
     /**
      * Returns the name of the Bundle, where the templates, which are
      * containing the static content, are stored
@@ -45,7 +44,7 @@ class BaseStaticPageController extends Controller
     {
         return 'c33sStaticPageContentBundle';
     }
-    
+
     /**
      * Returns the name of the folder where the content templates are stored.
      *
@@ -59,28 +58,27 @@ class BaseStaticPageController extends Controller
     {
         return 'Content';
     }
-    
+
     protected function isSandboxed()
     {
         return $this->isSandboxed;
     }
-    
+
     /**
      * Returns the full template "path" expression for a given content name.
      * Currently only twig is implemented. The Expression includes the ":"
      * seperators.
      * It's not the Filesystem path it's a twig path.
      *
-     * @param string $contentName The name of the content file which should be loaded
+     * @param  string $contentName The name of the content file which should be loaded
      * @return string Full path expression for the template
      */
     protected function getContentLocation($contentName, $subfolder = "")
     {
-        if (!empty($subfolder))
-        {
+        if (!empty($subfolder)) {
             $subfolder .= "/";
         }
-        
+
         return sprintf
         (
             '%s:%s:%s%s%s%s',
@@ -92,7 +90,7 @@ class BaseStaticPageController extends Controller
             $this->getTemplateExtension()
         );
     }
-    
+
     /**
      * Returns template extension. Default is ".html.twig".
      *
@@ -102,7 +100,7 @@ class BaseStaticPageController extends Controller
     {
         return '.html.twig';
     }
-    
+
     /**
      * Returns the full "path" expression for the Container Template
      *
@@ -112,7 +110,7 @@ class BaseStaticPageController extends Controller
     {
         return 'c33sStaticPageContentBundle:Content:_content_container.html.twig';
     }
-    
+
     /**
      *  Returns the Base Template Location which should be used for extending.
      *
@@ -123,25 +121,24 @@ class BaseStaticPageController extends Controller
     {
         return '::base.html.twig';
     }
-    
+
     /**
      * The Core Show Controller of this Bundle, renders the container templates,
      * which have to include the static page content.
      *
      * @param string The Name of the Static Page which should be loaded
      *
-     * @return Response A Response instance
+     * @return Response                                                     A Response instance
      * @throws Symfony\Component\HttpKernel\Exception\NotFoundHttpException Not found Exception is thrown if no template with the given name exists.
      */
     public function showAction($name, $subfolder="")
     {
         $contentLocation = $this->getContentLocation($name, $subfolder);
-        
-        if (!$this->container->get('templating')->exists($contentLocation))
-        {
+
+        if (!$this->container->get('templating')->exists($contentLocation)) {
             throw $this->createNotFoundException();
         }
-        
+
         return $this->render($this->getContainerLocation() ,
             array
             (
@@ -152,7 +149,7 @@ class BaseStaticPageController extends Controller
             )
         );
     }
-    
+
     /**
      * Define if translated files should be used or not. Translated files use an additional folder in the template path.
      * e.g.: views/Content/de/foo.html.twig instead of views/Content/foo.html.twig
@@ -167,7 +164,7 @@ class BaseStaticPageController extends Controller
     {
         return false;
     }
-    
+
     /**
      * Get the intermediate folder used for translated templates if translations are enabled.
      *
@@ -175,14 +172,13 @@ class BaseStaticPageController extends Controller
      */
     protected function getTranslationFolder()
     {
-        if ($this->isUsingTranslations())
-        {
+        if ($this->isUsingTranslations()) {
             return $this->get('request')->getLocale().'/';
         }
-        
+
         return '';
     }
-    
+
     /**
      * Get the intermediate file path used for translated templates if translations are enabled.
      *
@@ -190,11 +186,10 @@ class BaseStaticPageController extends Controller
      */
     protected function getTranslationFilePath()
     {
-        if ($this->isUsingTranslations())
-        {
+        if ($this->isUsingTranslations()) {
             return '.' . $this->get('request')->getLocale();
         }
-        
+
         return '';
     }
 }
