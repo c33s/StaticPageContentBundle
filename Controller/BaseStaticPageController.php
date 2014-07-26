@@ -166,20 +166,6 @@ class BaseStaticPageController extends Controller
     }
 
     /**
-     * Get the intermediate folder used for translated templates if translations are enabled.
-     *
-     * @return string
-     */
-    protected function getTranslationFolder()
-    {
-        if ($this->isUsingTranslations()) {
-            return $this->get('request')->getLocale().'/';
-        }
-
-        return '';
-    }
-
-    /**
      * Get the intermediate file path used for translated templates if translations are enabled.
      *
      * @return string
