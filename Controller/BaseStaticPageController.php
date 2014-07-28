@@ -1,13 +1,12 @@
 <?php
-
-/*
-* This file is part of the c33s\StaticPageContentBundle.
-*
-* (c) consistency <office@consistency.at>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+/**
+ * This file is part of the c33s\StaticPageContentBundle.
+ *
+ * (c) consistency <office@consistency.at>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace c33s\StaticPageContentBundle\Controller;
 
@@ -24,17 +23,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class BaseStaticPageController extends Controller
 {
     /**
-     * Should the Static content be sanboxed?
-     *
-     * Only works for the default Content Container
-     *
-     * http://twig.sensiolabs.org/doc/api.html#sandbox-extension
-     *
-     * @var Boolean
-     */
-    protected $isSandboxed = false;
-
-    /**
      * Returns the name of the Bundle, where the templates, which are
      * containing the static content, are stored
      *
@@ -42,7 +30,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentBundleName()
     {
-        return 'c33sStaticPageContentBundle';
+        return $this->container->getParameter('c33s_static_pages.content_bundle');
     }
 
     /**
@@ -56,12 +44,21 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentFolderName()
     {
-        return 'Content';
+        return $this->container->getParameter('c33s_static_pages.content_dir');
     }
 
+    /**
+     * Should the Static content be sandboxed?
+     *
+     * Only works for the default Content Container
+     *
+     * http://twig.sensiolabs.org/doc/api.html#sandbox-extension
+     *
+     * @return bool
+     */
     protected function isSandboxed()
     {
-        return $this->isSandboxed;
+        return $this->container->getParameter('c33s_static_pages.use_template_sandbox');
     }
 
     /**
@@ -98,7 +95,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getTemplateExtension()
     {
-        return '.html.twig';
+        return $this->container->getParameter('c33s_static_pages.template_extension');
     }
 
     /**
@@ -108,7 +105,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getContainerLocation()
     {
-        return 'c33sStaticPageContentBundle:Content:_content_container.html.twig';
+        return $this->container->getParameter('c33s_static_pages.wrapper_template');
     }
 
     /**
@@ -119,7 +116,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getBaseTemplateLocation()
     {
-        return '::base.html.twig';
+        return $this->container->getParameter('c33s_static_pages.base_template');
     }
 
     /**
@@ -162,7 +159,7 @@ class BaseStaticPageController extends Controller
      */
     public function isUsingTranslations()
     {
-        return false;
+        return $this->container->getParameter('c33s_static_pages.prefer_locale_templates');
     }
 
     /**
