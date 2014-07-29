@@ -1,3 +1,4 @@
+[![Build Status]](https://travis-ci.org/c33s/StaticPageContentBundle)
 [![Latest Stable Version](https://poser.pugx.org/c33s/static-page-content-bundle/v/stable.png)](https://packagist.org/packages/c33s/static-page-content-bundle) [![License](https://poser.pugx.org/c33s/static-page-content-bundle/license.png)](https://packagist.org/packages/c33s/static-page-content-bundle) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14/mini.png)](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14)
 [![project status](http://stillmaintained.com/c33s/StaticPageContentBundle.png)](http://stillmaintained.com/c33s/StaticPageContentBundle)
 
@@ -104,8 +105,4 @@ getContentFolderName() The Subfolder of the view folder which holds the content
 getContainerLocation() Full Twig Path expression to the Container Location
 getBaseTemplateLocation() Full Twig Path expression to the Base Template
 ```
-
-
-
-
-
+[Build Status]:            https://img.shields.io/travis/c33s/StaticPageContentBundle.svg
