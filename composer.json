@@ -2,31 +2,33 @@
     "name": "c33s/static-page-content-bundle",
     "type": "symfony-bundle",
     "description": "Easy serving of Static Page Content with Symfony using Twig Templates",
-    "keywords": ["static","content", "page", "bundle", "c33s", "consistency"],
+    "keywords": [
+        "static",
+        "content",
+        "page",
+        "bundle",
+        "c33s",
+        "consistency"
+    ],
     "homepage": "https://github.com/c33s/StaticPageContentBundle",
     "license": "MIT",
-    "authors":
-    [
+    "authors": [
         {
             "name": "consistency",
             "email": "office@consistency.at",
             "homepage": "http://consistency.at/"
         }
     ],
-    "require":
-    {
+    "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3,>=2.3.18 | ~2.4,>=2.4.8 | ~2.5,>=2.5.2"
     },
-    "require-dev":
-    {
+    "require-dev": {
         "phpunit/phpunit": "~4.1",
         "matthiasnoback/symfony-dependency-injection-test": "0.*"
     },
-    "autoload":
-    {
-        "psr-4":
-        {
+    "autoload": {
+        "psr-4": {
             "c33s\\StaticPageContentBundle\\": ""
         }
     }
