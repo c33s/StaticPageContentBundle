@@ -157,7 +157,7 @@ class BaseStaticPageController extends Controller
      *
      * @return boolean
      */
-    public function isUsingTranslations()
+    protected function isUsingTranslations()
     {
         return $this->container->getParameter('c33s_static_pages.prefer_locale_templates');
     }
