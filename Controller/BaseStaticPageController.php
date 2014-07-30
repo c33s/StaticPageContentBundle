@@ -151,8 +151,6 @@ class BaseStaticPageController extends Controller
      * Define if translated files should be used or not. Translated files use an additional folder in the template path.
      * e.g.: views/Content/de/foo.html.twig instead of views/Content/foo.html.twig
      *
-     * @TODO: make this a service setting
-     *
      * Override this and return true to enable translations support
      *
      * @return boolean
