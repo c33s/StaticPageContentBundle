@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         /* @var Symfony\Component\Config\Definition\Builder\NodeDefinition */
-        $rootNode = $treeBuilder->root('c33s_static_pages');
+        $rootNode = $treeBuilder->root('c33s_static_page_content');
 
         $rootNode
             ->children()

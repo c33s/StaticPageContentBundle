@@ -9,13 +9,13 @@
  */
 namespace c33s\StaticPageContentBundle;
 
-use c33s\StaticPageContentBundle\DependencyInjection\StaticPagesExtension;
+use c33s\StaticPageContentBundle\DependencyInjection\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class c33sStaticPageContentBundle extends Bundle
 {
     public function getContainerExtension()
     {
-        return new StaticPagesExtension();
+        return new Extension();
     }
 }

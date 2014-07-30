@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
-class StaticPagesExtension extends ConfigurableExtension
+class Extension extends ConfigurableExtension
 {
     /**
      * {@inheritdoc}
@@ -36,7 +36,7 @@ class StaticPagesExtension extends ConfigurableExtension
      */
     public function getAlias()
     {
-        return 'c33s_static_pages';
+        return 'c33s_static_page_content';
     }
 }
 
