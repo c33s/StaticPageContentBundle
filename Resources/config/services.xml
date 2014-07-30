@@ -3,12 +3,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="c33s_static_pages.base_template"/>
-        <parameter key="c33s_static_pages.content_bundle"/>
-        <parameter key="c33s_static_pages.content_dir"/>
-        <parameter key="c33s_static_pages.template_extension"/>
-        <parameter key="c33s_static_pages.prefer_locale_templates"/>
-        <parameter key="c33s_static_pages.use_template_sandbox"/>
-        <parameter key="c33s_static_pages.wrapper_template"/>
+        <parameter key="c33s_static_page_content.base_template"/>
+        <parameter key="c33s_static_page_content.content_bundle"/>
+        <parameter key="c33s_static_page_content.content_dir"/>
+        <parameter key="c33s_static_page_content.template_extension"/>
+        <parameter key="c33s_static_page_content.prefer_locale_templates"/>
+        <parameter key="c33s_static_page_content.use_template_sandbox"/>
+        <parameter key="c33s_static_page_content.wrapper_template"/>
     </parameters>
 </container>

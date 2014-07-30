@@ -30,7 +30,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentBundleName()
     {
-        return $this->container->getParameter('c33s_static_pages.content_bundle');
+        return $this->container->getParameter('c33s_static_page_content.content_bundle');
     }
 
     /**
@@ -44,7 +44,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getContentFolderName()
     {
-        return $this->container->getParameter('c33s_static_pages.content_dir');
+        return $this->container->getParameter('c33s_static_page_content.content_dir');
     }
 
     /**
@@ -58,7 +58,7 @@ class BaseStaticPageController extends Controller
      */
     protected function isSandboxed()
     {
-        return $this->container->getParameter('c33s_static_pages.use_template_sandbox');
+        return $this->container->getParameter('c33s_static_page_content.use_template_sandbox');
     }
 
     /**
@@ -95,7 +95,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getTemplateExtension()
     {
-        return $this->container->getParameter('c33s_static_pages.template_extension');
+        return $this->container->getParameter('c33s_static_page_content.template_extension');
     }
 
     /**
@@ -105,7 +105,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getContainerLocation()
     {
-        return $this->container->getParameter('c33s_static_pages.wrapper_template');
+        return $this->container->getParameter('c33s_static_page_content.wrapper_template');
     }
 
     /**
@@ -116,7 +116,7 @@ class BaseStaticPageController extends Controller
      */
     protected function getBaseTemplateLocation()
     {
-        return $this->container->getParameter('c33s_static_pages.base_template');
+        return $this->container->getParameter('c33s_static_page_content.base_template');
     }
 
     /**
@@ -157,7 +157,7 @@ class BaseStaticPageController extends Controller
      */
     protected function isUsingTranslations()
     {
-        return $this->container->getParameter('c33s_static_pages.prefer_locale_templates');
+        return $this->container->getParameter('c33s_static_page_content.prefer_locale_templates');
     }
 
     /**

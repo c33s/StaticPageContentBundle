@@ -9,14 +9,14 @@
  */
 namespace c33s\StaticPageContentBundle\Tests\DependencyInjection;
 
-use c33s\StaticPageContentBundle\DependencyInjection\StaticPagesExtension;
+use c33s\StaticPageContentBundle\DependencyInjection\Extension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class StaticPagesExtensionTest extends AbstractExtensionTestCase
+class ExtensionTest extends AbstractExtensionTestCase
 {
     protected function getContainerExtensions()
     {
-        return array(new StaticPagesExtension());
+        return array(new Extension());
     }
 
     /**
@@ -27,7 +27,7 @@ class StaticPagesExtensionTest extends AbstractExtensionTestCase
         $this->load();
 
         $this->assertContainerBuilderHasParameter(
-            'c33s_static_pages.content_bundle',
+            'c33s_static_page_content.content_bundle',
             'c33sStaticPageContentBundle'
         );
     }
@@ -41,8 +41,8 @@ class StaticPagesExtensionTest extends AbstractExtensionTestCase
         $this->load($config);
 
         $this->assertContainerBuilderHasParameter(
-            'c33s_static_pages.content_dir',
+            'c33s_static_page_content.content_dir',
             'pages'
         );
     }
-} 
+}
