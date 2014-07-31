@@ -17,7 +17,7 @@ Twig.
 ```php
     $bundles = array(
         // ...
-        new c33s\StaticPageContentBundle\c33sStaticPageContentBundle(),
+        new C33s\StaticPageContentBundle\C33sStaticPageContentBundle(),
     );
 ```
 
@@ -39,13 +39,13 @@ given name.
 
 ## USAGE
 After the installation, you have to create your own bundle, where you change the
-controller that it extends c33s\BaseStaticPageController.
+controller that it extends C33s\BaseStaticPageController.
 
 YourVendorName/YourBundleNameBundle/Controller/YourControllerName.php
 ```
 <?php
 namespace YourVendorName\YourBundleNameBundle\Controller;
-use c33s\StaticPageContentBundle\Controller\BaseStaticPageController;
+use C33s\StaticPageContentBundle\Controller\BaseStaticPageController;
 
 class PageController extends BaseStaticPageController
 {
@@ -84,8 +84,8 @@ YourVendorName/YourBundleNameBundle/Resources/views/Content/YourSubFolder
 
 ```
 http://example.com/aboutus/team
-``` 
-will look for a template in 
+```
+will look for a template in
 
 ```
 YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.twig
@@ -93,10 +93,10 @@ YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.tw
 
 
 ## CUSTOMIZATION
-If you want customize the bundles behavior, you have to overwrite the following 
+If you want customize the bundles behavior, you have to overwrite the following
 functions:
 
-Most of the time you only change the first of the following four functions to your 
+Most of the time you only change the first of the following four functions to your
 own bundle name.
 
 ```
