@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the c33s\StaticPageContentBundle.
+ * This file is part of the C33s\StaticPageContentBundle.
  *
  * (c) consistency <office@consistency.at>
  *
@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace c33s\StaticPageContentBundle\DependencyInjection;
+namespace C33s\StaticPageContentBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

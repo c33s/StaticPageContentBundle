@@ -1,15 +1,15 @@
 <?php
 /**
- * This file is part of the c33s\StaticPageContentBundle.
+ * This file is part of the C33s\StaticPageContentBundle.
  *
  * (c) consistency <office@consistency.at>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace c33s\StaticPageContentBundle\Tests\DependencyInjection;
+namespace C33s\StaticPageContentBundle\Tests\DependencyInjection;
 
-use c33s\StaticPageContentBundle\DependencyInjection\Extension;
+use C33s\StaticPageContentBundle\DependencyInjection\Extension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 class ExtensionTest extends AbstractExtensionTestCase
@@ -28,7 +28,7 @@ class ExtensionTest extends AbstractExtensionTestCase
 
         $this->assertContainerBuilderHasParameter(
             'c33s_static_page_content.content_bundle',
-            'c33sStaticPageContentBundle'
+            'C33sStaticPageContentBundle'
         );
     }
 

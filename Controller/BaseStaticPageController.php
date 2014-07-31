@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the c33s\StaticPageContentBundle.
+ * This file is part of the C33s\StaticPageContentBundle.
  *
  * (c) consistency <office@consistency.at>
  *
@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace c33s\StaticPageContentBundle\Controller;
+namespace C33s\StaticPageContentBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -37,7 +37,7 @@ class BaseStaticPageController extends Controller
      * Returns the name of the folder where the content templates are stored.
      *
      * This folder has to be located in %YourBundleName%/Resources/views
-     * The default path is c33s/StaticPageContentBundle/Resources/views/Content
+     * The default path is C33s/StaticPageContentBundle/Resources/views/Content
      * so the default return value is "Content".
      *
      * @return string Name of the folder containing the Content

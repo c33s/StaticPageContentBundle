@@ -29,7 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "c33s\\StaticPageContentBundle\\": ""
+            "C33s\\StaticPageContentBundle\\": ""
         }
     }
 }

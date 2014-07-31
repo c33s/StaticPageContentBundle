@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the c33s\StaticPageContentBundle.
+ * This file is part of the C33s\StaticPageContentBundle.
  *
  * (c) consistency <office@consistency.at>
  *
@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace c33s\StaticPageContentBundle\DependencyInjection;
+namespace C33s\StaticPageContentBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -37,11 +37,11 @@ class Configuration implements ConfigurationInterface
                            'the page templates.')
                 ->end()
                 ->scalarNode('content_bundle')
-                    ->defaultValue('c33sStaticPageContentBundle')
+                    ->defaultValue('C33sStaticPageContentBundle')
                     ->info('Bundle that holds the static pages')
                 ->end()
                 ->scalarNode('wrapper_template')
-                    ->defaultValue('c33sStaticPageContentBundle:Content:_content_container.html.twig')
+                    ->defaultValue('C33sStaticPageContentBundle:Content:_content_container.html.twig')
                     ->info('Template used to wrap your static pages')
                 ->end()
                 ->booleanNode('use_template_sandbox')

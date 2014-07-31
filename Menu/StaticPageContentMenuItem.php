@@ -1,10 +1,10 @@
 <?php
 
-namespace c33s\StaticPageContentBundle\Menu;
+namespace C33s\StaticPageContentBundle\Menu;
 
-use c33s\MenuBundle\Exception\OptionRequiredException;
-use c33s\MenuBundle\Item\MenuItem;
-use c33s\MenuBundle\Menu\Menu;
+use C33s\MenuBundle\Exception\OptionRequiredException;
+use C33s\MenuBundle\Item\MenuItem;
+use C33s\MenuBundle\Menu\Menu;
 
 /**
  * Description of SimpleContentMenuItem
