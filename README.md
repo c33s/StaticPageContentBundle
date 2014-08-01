@@ -64,7 +64,7 @@ add a routing like this to the end of your routing file (in config/routing you c
 find the routing code you can use).
 ```yml
 static_pages:
-    pattern:  /{name}
+    path:  /{name}
     defaults: { _controller: "YourVendorNameYourBundle:Page:show" }
 ```
 
@@ -77,7 +77,7 @@ YourVendorName/YourBundle/Resources/views/Content/
 
 ```yml
 static_pages:
-    pattern:  /{name}
+    path:  /{name}
     defaults: { _controller: "YourVendorNameYourBundle:Page:show" }
     requirements:
         # this makes the name parameter accept anything, even slashes
