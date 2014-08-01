@@ -1,5 +1,7 @@
 [![Build Status]](https://travis-ci.org/c33s/StaticPageContentBundle)
-[![Latest Stable Version](https://poser.pugx.org/c33s/static-page-content-bundle/v/stable.png)](https://packagist.org/packages/c33s/static-page-content-bundle) [![License](https://poser.pugx.org/c33s/static-page-content-bundle/license.png)](https://packagist.org/packages/c33s/static-page-content-bundle) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14/mini.png)](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14)
+[![Latest Stable Version](https://poser.pugx.org/c33s/static-page-content-bundle/v/stable.png)](https://packagist.org/packages/c33s/static-page-content-bundle)
+[![License](https://poser.pugx.org/c33s/static-page-content-bundle/license.png)](https://packagist.org/packages/c33s/static-page-content-bundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14/mini.png)](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14)
 [![project status](http://stillmaintained.com/c33s/StaticPageContentBundle.png)](http://stillmaintained.com/c33s/StaticPageContentBundle)
 
 
@@ -34,7 +36,7 @@ real content has to be inside.
 The Bundle uses a very catchy route ``/{name}``, so it should be placed at the end of your
 routing file.
 
-if ``{name}`` is catched the controller tries to load the content file with the
+if ``{name}`` is caught the controller tries to load the content file with the
 given name.
 
 ## USAGE
@@ -42,10 +44,10 @@ given name.
 After the installation, you have to create your own bundle, where you change the
 controller that it extends C33s\BaseStaticPageController.
 
-YourVendorName/YourBundleNameBundle/Controller/YourControllerName.php
-```
+YourVendorName/YourBundle/Controller/YourControllerName.php
+```php
 <?php
-namespace YourVendorName\YourBundleNameBundle\Controller;
+namespace YourVendorName\YourBundle\Controller;
 use C33s\StaticPageContentBundle\Controller\BaseStaticPageController;
 
 class PageController extends BaseStaticPageController
@@ -60,23 +62,23 @@ class PageController extends BaseStaticPageController
 
 add a routing like this to the end of your routing file (in config/routing you can
 find the routing code you can use).
-```
+```yml
 static_pages:
     pattern:  /{name}
-    defaults: { _controller: "YourVendorNameYourBundleNameBundle:Page:show" }
+    defaults: { _controller: "YourVendorNameYourBundle:Page:show" }
 ```
 
 put your content files here:
 ```
-YourVendorName/YourBundleNameBundle/Resources/views/Content/
+YourVendorName/YourBundle/Resources/views/Content/
 ```
 
 ### Using static files with folders:
 
-```
+```yml
 static_pages:
     pattern:  /{name}
-    defaults: { _controller: "YourVendorNameYourBundleNameBundle:Page:show" }
+    defaults: { _controller: "YourVendorNameYourBundle:Page:show" }
     requirements:
         # this makes the name parameter accept anything, even slashes
         name:  .*
@@ -88,7 +90,7 @@ http://example.com/about-us/team
 will look for a template in
 
 ```
-YourVendorName/YourBundleNameBundle/Resources/views/Content/about-us/team.html.twig
+YourVendorName/YourBundle/Resources/views/Content/about-us/team.html.twig
 ```
 
 ### Localized templates
@@ -127,4 +129,4 @@ getContainerLocation()      Full Twig Path expression to the Container Location
 getBaseTemplateLocation()   Full Twig Path expression to the Base Template
 isUsingTranslations()       Enable support for localized templates
 ```
-[Build Status]:            https://img.shields.io/travis/c33s/StaticPageContentBundle.svg
+
