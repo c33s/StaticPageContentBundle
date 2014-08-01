@@ -12,7 +12,7 @@ namespace C33s\StaticPageContentBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-/*
+/**
  * BaseStaticPageController which should be extended from.
  *
  * Usage: MyPageController extends BaseStaticPageController
@@ -67,23 +67,20 @@ class BaseStaticPageController extends Controller
      * seperators.
      * It's not the Filesystem path it's a twig path.
      *
-     * @param  string $contentName The name of the content file which should be loaded
+     * @param string    $contentName        The name of the content file which should be loaded
+     * @param boolean   $useTranslations    Whether to add translation component to file path or not
+     *
      * @return string Full path expression for the template
      */
-    protected function getContentLocation($contentName, $subfolder = "")
+    protected function getContentLocation($contentName, $useTranslations)
     {
-        if (!empty($subfolder)) {
-            $subfolder .= "/";
-        }
-
         return sprintf
         (
-            '%s:%s:%s%s%s%s',
+            '%s:%s:%s%s%s',
             $this->getContentBundleName(),
             $this->getContentFolderName(),
-            $subfolder,
             $contentName,
-            $this->getTranslationFilePath(),
+            $useTranslations ? $this->getTranslationFilePath() : '',
             $this->getTemplateExtension()
         );
     }
@@ -123,22 +120,26 @@ class BaseStaticPageController extends Controller
      * The Core Show Controller of this Bundle, renders the container templates,
      * which have to include the static page content.
      *
-     * @param string The Name of the Static Page which should be loaded
+     * @throws Symfony\Component\HttpKernel\Exception\NotFoundHttpException     Not found Exception is thrown if no template with the given name exists.
      *
-     * @return Response                                                     A Response instance
-     * @throws Symfony\Component\HttpKernel\Exception\NotFoundHttpException Not found Exception is thrown if no template with the given name exists.
+     * @param string    $name   The Name of the Static Page which should be loaded
+     *
+     * @return Response         A Response instance
      */
-    public function showAction($name, $subfolder="")
+    public function showAction($name)
     {
-        $contentLocation = $this->getContentLocation($name, $subfolder);
+        $contentLocation = $this->getContentLocation($name, $this->isUsingTranslations());
+
+        if (!$this->container->get('templating')->exists($contentLocation) && $this->isUsingTranslations()) {
+            // fallback: if translations are enabled, try fetching the same template without translation path
+            $contentLocation = $this->getContentLocation($name, false);
+        }
 
         if (!$this->container->get('templating')->exists($contentLocation)) {
             throw $this->createNotFoundException();
         }
 
-        return $this->render($this->getContainerLocation() ,
-            array
-            (
+        return $this->render($this->getContainerLocation(), array(
                 'baseTemplate' => $this->getBaseTemplateLocation(),
                 //--'isSandboxed' => $this->isSandboxed(),
                 'contentLocation'=> $contentLocation,
@@ -148,8 +149,8 @@ class BaseStaticPageController extends Controller
     }
 
     /**
-     * Define if translated files should be used or not. Translated files use an additional folder in the template path.
-     * e.g.: views/Content/de/foo.html.twig instead of views/Content/foo.html.twig
+     * Define if translated files should be used or not. Translated files use an additional substring in the template path.
+     * e.g.: views/Content/foo.de.html.twig instead of views/Content/foo.html.twig
      *
      * Override this and return true to enable translations support
      *
@@ -161,30 +162,12 @@ class BaseStaticPageController extends Controller
     }
 
     /**
-     * Get the intermediate folder used for translated templates if translations are enabled.
-     *
-     * @return string
-     */
-    protected function getTranslationFolder()
-    {
-        if ($this->isUsingTranslations()) {
-            return $this->get('request')->getLocale().'/';
-        }
-
-        return '';
-    }
-
-    /**
-     * Get the intermediate file path used for translated templates if translations are enabled.
+     * Get the intermediate file path used for translated templates.
      *
      * @return string
      */
     protected function getTranslationFilePath()
     {
-        if ($this->isUsingTranslations()) {
-            return '.' . $this->get('request')->getLocale();
-        }
-
-        return '';
+        return '.' . $this->get('request')->getLocale();
     }
 }

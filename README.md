@@ -38,6 +38,7 @@ if ``{name}`` is catched the controller tries to load the content file with the
 given name.
 
 ## USAGE
+
 After the installation, you have to create your own bundle, where you change the
 controller that it extends C33s\BaseStaticPageController.
 
@@ -70,29 +71,49 @@ put your content files here:
 YourVendorName/YourBundleNameBundle/Resources/views/Content/
 ```
 
-using static files with folders:
+### Using static files with folders:
+
 ```
-static_pages_subfolder:
-    pattern:  /{subfolder}/{name}
+static_pages:
+    pattern:  /{name}
     defaults: { _controller: "YourVendorNameYourBundleNameBundle:Page:show" }
+    requirements:
+        # this makes the name parameter accept anything, even slashes
+        name:  .*
 ```
 
-your files can be located in the first level subfolder of the Content directory:
 ```
-YourVendorName/YourBundleNameBundle/Resources/views/Content/YourSubFolder
-```
-
-```
-http://example.com/aboutus/team
+http://example.com/about-us/team
 ```
 will look for a template in
 
 ```
-YourVendorName/YourBundleNameBundle/Resources/views/Content/aboutus/team.html.twig
+YourVendorName/YourBundleNameBundle/Resources/views/Content/about-us/team.html.twig
 ```
 
+### Localized templates
+
+You can enable support for localized templates by either overriding the `isUsingTranslations()` method in your controller
+(returning true) or setting the configuration value:
+
+```yml
+#config.yml
+
+c33s_static_page_content:
+    prefer_locale_templates:    true
+```
+Either way the controller will try to add the current locale to the template path:
+
+```
+about-us/team.en.html.twig
+vs.
+about-us/team.html.twig
+```
+
+If no localized version is found, the non-localized template will be used as fallback (if available)
 
 ## CUSTOMIZATION
+
 If you want customize the bundles behavior, you have to overwrite the following
 functions:
 
@@ -100,9 +121,10 @@ Most of the time you only change the first of the following four functions to yo
 own bundle name.
 
 ```
-getContentBundleName() The Name which contains all the content
-getContentFolderName() The Subfolder of the view folder which holds the content
-getContainerLocation() Full Twig Path expression to the Container Location
-getBaseTemplateLocation() Full Twig Path expression to the Base Template
+getContentBundleName()      The Name which contains all the content
+getContentFolderName()      The Subfolder of the view folder which holds the content
+getContainerLocation()      Full Twig Path expression to the Container Location
+getBaseTemplateLocation()   Full Twig Path expression to the Base Template
+isUsingTranslations()       Enable support for localized templates
 ```
 [Build Status]:            https://img.shields.io/travis/c33s/StaticPageContentBundle.svg
