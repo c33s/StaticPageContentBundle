@@ -11,7 +11,7 @@ Twig.
 ## INSTALLATION
 
 ### Install it with composer
-`php composer.phar require c33s/static-page-content-bundle`
+`php composer.phar require c33s/static-page-content-bundle:~2.0`
 
 
 ### Register the bundle in ``app/AppKernel.php``
