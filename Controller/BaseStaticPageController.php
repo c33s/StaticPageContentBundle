@@ -141,7 +141,7 @@ class BaseStaticPageController extends Controller
 
         return $this->render($this->getContainerLocation(), array(
                 'baseTemplate' => $this->getBaseTemplateLocation(),
-                //--'isSandboxed' => $this->isSandboxed(),
+                'isSandboxed' => $this->isSandboxed(),
                 'contentLocation'=> $contentLocation,
                 'contentName' => $name,
             )
