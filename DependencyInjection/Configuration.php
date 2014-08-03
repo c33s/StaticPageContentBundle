@@ -41,7 +41,7 @@ class Configuration implements ConfigurationInterface
                     ->info('Bundle that holds the static pages')
                 ->end()
                 ->scalarNode('wrapper_template')
-                    ->defaultValue('C33sStaticPageContentBundle:Content:_content_container.html.twig')
+                    ->defaultValue('C33sStaticPageContentBundle::layout.html.twig')
                     ->info('Template used to wrap your static pages')
                 ->end()
                 ->booleanNode('use_template_sandbox')
