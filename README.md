@@ -27,8 +27,10 @@ Twig.
 
 This Bundle is just a small twig template wrapper. The "core" is the template
 ``_content_container.html.twig`` which extends a predefined base template. the 
-default one is ``::base.html.twig``. If no base template is defined, nothing will
-be extended.
+default one is ``::base.html.twig``. If the base template name is empty (or false),
+the  template wrapper will extend ``@C33sStaticPageContent::empty.html.twig`` which
+simply outputs the content block.
+
 Afterwards the content is loaded from the provided content file, in a block 
 named "content". The content files don't need any includes or extends only the 
 real content has to be inside.
