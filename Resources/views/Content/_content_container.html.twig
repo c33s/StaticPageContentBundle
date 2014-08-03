@@ -1,15 +1,4 @@
-{#
-Twig Content Container
-Extends a given base template or doesn't extend at all if an empty string is
-provided. Includes the given contentlocation inside a block named "content".
-
-TODO: only extend base template if base template string is not empty
-currently not possible, because also if the "extends" tag is inside an if
-statement, it gets evaluated (php class stuff)
-#}
-{# extending the base template #}
-{% extends baseTemplate %}
-
+{% extends baseTemplate ?: 'C33sStaticPageContentBundle::empty.html.twig' %}
 {% block content %}
     {{ include(contentLocation, sandboxed = isSandboxed) }}
 {% endblock %}
