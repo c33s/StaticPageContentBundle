@@ -26,7 +26,7 @@ Twig.
 ## HOW IT WORKS
 
 This Bundle is just a small twig template wrapper. The "core" is the template
-``_content_container.html.twig`` which extends a predefined base template. the 
+``layout.html.twig`` which extends a predefined base template. the 
 default one is ``::base.html.twig``. If the base template name is empty (or false),
 the  template wrapper will extend ``@C33sStaticPageContent::empty.html.twig`` which
 simply outputs the content block.

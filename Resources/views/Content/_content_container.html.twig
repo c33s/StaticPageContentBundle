@@ -1,4 +1,5 @@
-{% extends baseTemplate ?: 'C33sStaticPageContentBundle::empty.html.twig' %}
-{% block content %}
-    {{ include(contentLocation, sandboxed = isSandboxed) }}
-{% endblock %}
+{#
+This template is deprecated. You should switch your getContainerLocation() method
+to point to C33sStaticPageContentBundle::layout.html.twig instead.
+#}
+{% extends 'C33sStaticPageContentBundle::layout.html.twig' %}

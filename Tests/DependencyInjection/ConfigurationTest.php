@@ -31,7 +31,7 @@ class ConfigurationTest extends AbstractConfigurationTestCase
             'base_template' => '::base.html.twig',
             'content_bundle' => 'C33sStaticPageContentBundle',
             'content_dir' => 'Content',
-            'wrapper_template' => 'C33sStaticPageContentBundle:Content:_content_container.html.twig',
+            'wrapper_template' => 'C33sStaticPageContentBundle::layout.html.twig',
             'template_extension' => '.html.twig',
             'use_template_sandbox' => false,
             'prefer_locale_templates' => false

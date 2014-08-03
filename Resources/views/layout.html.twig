@@ -1,0 +1,4 @@
+{% extends baseTemplate ?: 'C33sStaticPageContentBundle::empty.html.twig' %}
+{% block content %}
+    {{ include(contentLocation, sandboxed = isSandboxed) }}
+{% endblock %}
