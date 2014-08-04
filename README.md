@@ -39,9 +39,9 @@ License
 This bundle is released under the MIT license. See the complete license in the
 bundle:
 
-    Resources/meta/LICENSE
+    Resources/doc/LICENSE
 
-
+[Read the license](Resources/doc/LICENSE)
 
 
 [Build Status]:            https://img.shields.io/travis/c33s/StaticPageContentBundle.svg
