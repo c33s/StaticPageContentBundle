@@ -14,9 +14,22 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "consistency",
+            "name": "Julian",
             "email": "office@consistency.at",
             "homepage": "http://consistency.at/"
+        },
+        {
+            "name": "David Herrmann",
+            "homepage": "https://github.com/vworldat"
+        },
+        {
+            "name": "Johnny Robeson",
+            "email": "johnny@localmomentum.net",
+            "homepage": "https://github.com/jrobeson"
+        },
+        {
+            "name": "Community",
+            "homepage": "https://github.com/c33s/StaticPageContentBundle/contributors"
         }
     ],
     "require": {
