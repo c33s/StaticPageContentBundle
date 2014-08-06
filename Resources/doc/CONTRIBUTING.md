@@ -1,6 +1,6 @@
 # Contributing
 
-_**Attention - The Bundle/Component linking her uses the [`composer.yml`](https://github.com/c33s/composer.yml/blob/master/Resources/doc/ThisBundleUsesYml.md) format**_
+_**Attention - The Bundle/Component linked here uses the [`composer.yml`](https://github.com/c33s/composer.yml/blob/master/Resources/doc/ThisBundleUsesYml.md) format**_
 
 First of all, **thank you** for contributing, **you are awesome**!
 
