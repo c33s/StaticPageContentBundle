@@ -6,8 +6,15 @@
 [![Latest Stable Version]](https://packagist.org/packages/c33s/static-page-content-bundle) 
 [![License]](https://packagist.org/packages/c33s/static-page-content-bundle) 
 [![SensioLabsInsight]](https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14)
-[![project status]](http://stillmaintained.com/c33s/StaticPageContentBundle)
+![project status]
 [![Scrutinizer Code Quality]](https://scrutinizer-ci.com/g/c33s/StaticPageContentBundle/?branch=master)
+
+
+**Project is unmaintained**
+
+use the official way for this https://symfony.com/doc/3.4/templating/render_without_controller.html or 
+https://gitlab.com/zero-gravity/zero-gravity-cms.git
+
 
 Provide an easy way to serve static page content in your Symfony2 Projects with
 Twig.
@@ -51,7 +58,7 @@ bundle:
 [Latest Unstable Version]:  https://poser.pugx.org/c33s/static-page-content-bundle/v/unstable.png
 [License]:                  https://poser.pugx.org/c33s/static-page-content-bundle/license.png
 [SensioLabsInsight]:        https://insight.sensiolabs.com/projects/7187788e-a842-4ee6-a2e0-58f4c2809f14/mini.png
-[project status]:           http://stillmaintained.com/c33s/StaticPageContentBundle.png
+[project status]:           https://img.shields.io/maintenance/no/2016.svg
 [Packagist Version]:        http://img.shields.io/packagist/v/c33s/static-page-content-bundle.svg
 [Packagist License]:        http://img.shields.io/packagist/l/c33s/static-page-content-bundle.svg
 [Scrutinizer Code Quality]: https://scrutinizer-ci.com/g/c33s/StaticPageContentBundle/badges/quality-score.png?b=master)
